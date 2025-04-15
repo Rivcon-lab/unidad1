@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConIngenio: Consultoría y Desarrollo de Software</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header y Menú Principal -->
+  <header>
+    <div class="container">
+      <h1>ConIngenio</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="servicio.html">Nuestros Servicios</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contáctenos</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle" aria-label="Cambiar idioma">ESP</button>
+      <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    </div>
+  </header> 
+
+
+  <!-- Contáctenos -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contáctenos</h2>
+      <form id="contact-form">
+        <label for="name">Nombre Completo:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="service">Seleccione un Servicio:</label>
+        <select id="service" name="service" required>
+          <option value="consultoria">Consultoría Digital</option>
+          <option value="multiexperiencia">Soluciones Multiexperiencia</option>
+          <option value="ecosistemas">Evolución de Ecosistemas</option>
+          <option value="lowcode">Soluciones Low-Code</option>
+          <option value="otro">Otras Consultas</option>
+        </select>
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 ConIngenio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
