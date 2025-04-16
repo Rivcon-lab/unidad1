@@ -371,7 +371,7 @@ footer {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #000000;
+  color: var(--text-color);
   cursor: pointer;
 }
 
@@ -406,4 +406,35 @@ nav ul {
     text-align: right;
     padding-right: 1.5rem;
   }
+}
+/* Estilo para la tarjeta de información de contacto */
+.contact-info {
+  background: var(--card-bg); /* Fondo consistente con las tarjetas */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: var(--card-shadow); /* Sombra para dar profundidad */
+  padding: 20px; /* Espaciado interno */
+  color: var(--text-color); /* Color del texto */
+  line-height: 1.6; /* Espaciado entre líneas */
+  margin: 20px 0; /* Espaciado externo */
+
+}
+
+.contact-info h3 {
+  font-size: 1.5rem; /* Tamaño del título */
+  margin-bottom: 15px; /* Espaciado inferior */
+  color: var(--card-title-color); /* Color del título */
+}
+
+.contact-info p {
+  margin-bottom: 10px; /* Espaciado entre párrafos */
+}
+
+.contact-info a {
+  color: var(--link-color); /* Color de los enlaces */
+  text-decoration: none; /* Sin subrayado */
+  transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.contact-info a:hover {
+  color: var(--hover-color); /* Color al pasar el mouse */
 }
