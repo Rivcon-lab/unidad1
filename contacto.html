@@ -29,24 +29,38 @@
   <section id="contact">
     <div class="container">
       <h2>Contáctenos</h2>
-      <form id="contact-form">
-        <label for="name">Nombre Completo:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="service">Seleccione un Servicio:</label>
-        <select id="service" name="service" required>
-          <option value="consultoria">Consultoría Digital</option>
-          <option value="multiexperiencia">Soluciones Multiexperiencia</option>
-          <option value="ecosistemas">Evolución de Ecosistemas</option>
-          <option value="lowcode">Soluciones Low-Code</option>
-          <option value="otro">Otras Consultas</option>
-        </select>
-
-        <label for="message">Mensaje:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
+      <div class="contact-flex">
+        <form id="contact-form">
+          <label for="name">Nombre Completo:</label>
+          <input type="text" id="name" name="name" required>
+  
+          <label for="service">Seleccione un Servicio:</label>
+          <select id="service" name="service" required>
+            <option value="consultoria">Consultoría Digital</option>
+            <option value="multiexperiencia">Soluciones Multiexperiencia</option>
+            <option value="ecosistemas">Evolución de Ecosistemas</option>
+            <option value="lowcode">Soluciones Low-Code</option>
+            <option value="otro">Otras Consultas</option>
+          </select>
+  
+          <label for="message">Mensaje:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+  
+          <button type="submit">Enviar</button>
+        </form>
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          <p><strong>Dirección:</strong><br>
+          Av. Providencia 1234, Oficina 601<br>
+          Providencia, Santiago, Chile</p>
+          <p><strong>Teléfono:</strong><br>
+          +56 2 1234 5678</p>
+          <p><strong>Web:</strong><br>
+          <a href="https://www.coningenio.cl" target="_blank">www.coningenio.cl</a></p>
+          <p><strong>Email:</strong><br>
+          <a href="mailto:info@coningenio.cl">info@coningenio.cl</a></p>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -1,108 +1,267 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Header */
-  header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-  }
-  
-  header .container {
-    display: flex;
-    justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  background: #222;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 1rem;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+header nav ul li a:hover {
+  color: #00b8b8;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Secciones */
+section {
+  padding: 2rem 0;
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.service {
+  margin: 1rem 0;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin: 0.5rem 0 0.2rem;
+}
+
+form input, form select, form textarea, form button {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form button:hover {
+  background: #444;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Hero Section */
+#hero {
+  background: url('img/bg.webp') center/cover no-repeat;
+  color: #000;
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+  padding: 40px 60px;
+  border-radius: 12px;
+}
+
+.btn-hero {
+  background: #00b8b8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-family: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px 0 #00b8b833, 0 0 0 1px #00b8b8;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-hero:hover {
+  background: #009090;
+  box-shadow: 0 0 20px 2px #00b8b8, 0 0 0 1.5px #444;
+}
+
+/* Contacto */
+.contact-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+#contact-form {
+  flex: 2;
+  min-width: 260px;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 220px;
+  background: #e0e0e0;
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: 0 6px 16px -3px rgba(0,0,0,0.10);
+}
+
+.contact-info h3 {
+  margin-top: 0;
+}
+
+/* Cards de Servicios y About */
+.services-section,
+.about-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.services-title,
+.about-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  color: #00b8b8;
+  text-shadow: 0 2px 12px #00b8b822;
+}
+
+.services-list,
+.about-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.service-card,
+.about-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px 0 #00000011;
+  padding: 28px 22px 22px 22px;
+  width: 320px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  border: 1px solid #e0e0e0;
+}
+
+.service-card:hover,
+.about-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px 0 #00b8b855, 0 2px 8px #00000022;
+  border-color: #00b8b8;
+}
+
+.service-title,
+.about-title-card {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #00b8b8;
+  letter-spacing: 0.5px;
+}
+
+.service-desc,
+.about-desc {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Mensajes de carga y error */
+.loading, .error {
+  text-align: center;
+  margin: 32px 0;
+  color: #888;
+  font-size: 1.1rem;
+}
+.error {
+  color: #ff4d4f;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .services-list,
+  .about-list {
+    flex-direction: column;
     align-items: center;
   }
-  
-  header nav ul {
-    list-style: none;
-    display: flex;
+  .service-card,
+  .about-card {
+    width: 95%;
+    min-width: 0;
   }
-  
-  header nav ul li {
-    margin: 0 1rem;
+  .hero-content {
+    padding: 24px 10px;
   }
-  
-  header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  #theme-toggle {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  /* Secciones */
-  section {
-    padding: 2rem 0;
-  }
-  
-  section h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .service {
-    margin: 1rem 0;
-  }
-  
-  /* Formulario */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form label {
-    margin: 0.5rem 0 0.2rem;
-  }
-  
-  form input, form select, form textarea, form button {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  form button {
-    background: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background: #555;
-  }
-  
-  /* Footer */
-  footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-  }
-  .nosotros h2 {
-    text-align: center;
-    justify-content: space-between;
-  }
+}
