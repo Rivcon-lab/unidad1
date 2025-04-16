@@ -29,6 +29,7 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 header nav ul {
@@ -287,11 +288,11 @@ nav ul {
     display: block;
   }
   nav ul {
-    display: none;
+    display: none; /* OCULTA el menú por defecto en móvil */
     flex-direction: column;
     background: #222;
     position: absolute;
-    top: 60px; /* ajusta según tu header */
+    top: 60px;
     right: 0;
     width: 200px;
     box-shadow: 0 4px 16px #0002;
@@ -299,7 +300,7 @@ nav ul {
     z-index: 100;
   }
   nav ul.open {
-    display: flex;
+    display: flex; /* MUESTRA el menú cuando tiene la clase .open */
   }
   nav ul li {
     margin: 1rem 0;

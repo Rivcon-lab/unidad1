@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('nav-toggle').addEventListener('click', function() {
+    document.getElementById('nav-menu').classList.toggle('open');
+  });
+});
 // Cambiar entre tema día/noche
 const themeToggle = document.getElementById('theme-toggle');
 if (themeToggle) {
@@ -41,7 +46,3 @@ if (contactForm) {
     contactForm.reset(); // Limpiar formulario
   });
 }
-// En tu script principal o al final del body
-document.getElementById('nav-toggle').addEventListener('click', function() {
-  document.getElementById('nav-menu').classList.toggle('open');
-});
