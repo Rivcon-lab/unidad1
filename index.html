@@ -1,86 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ConIngenio: Consultoría y Desarrollo de Software</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConIngenio: Consultoría y Desarrollo de Software</title>
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header y Menú Principal -->
-  <header>
-    <div class="container">
-      <h1><a href="index.html">ConIngenio</a></h1>
-      <nav>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">&#9776;</button>
-        <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="servicio.html">Nuestros Servicios</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="contacto.html">Contáctenos</a></li>
-        </ul>
-      </nav>
-      <button id="lang-toggle" aria-label="Cambiar idioma">ESP</button>
-      <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
-    </div>
-  </header>
+    <!-- Header y Menú Principal -->
+    <header>
+        <div class="container">
+            <h1><a class="linkcabecera" href="index.html">ConIngenio</a></h1>
+            <nav>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">&#9776;</button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="servicio.html">Nuestros Servicios</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contáctenos</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <button id="lang-toggle" aria-label="Cambiar idioma">ESP</button>
+                <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            </div>
+        </div>
+    </header>
 
-  <section id="hero">
-    <div class="container hero-content">
-      <h1>Bienvenidos a ConIngenio Soluciones de Software</h1> <br>
-      <p>En ConIngenio, transformamos tus ideas en soluciones digitales innovadoras. Nuestro equipo de expertos está comprometido en ofrecer herramientas tecnológicas personalizadas que impulsen el crecimiento de tu negocio.
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h2>Bienvenidos a ConIngenio Soluciones de Software</h2>
+            <p>En ConIngenio, transformamos tus ideas en soluciones digitales innovadoras. Nuestro equipo de expertos está comprometido en ofrecer herramientas tecnológicas personalizadas que impulsen el crecimiento de tu negocio.</p>
+            <p>Desde el desarrollo de aplicaciones hasta la optimización de procesos, te ayudamos a alcanzar tus objetivos con soluciones eficientes, modernas y adaptadas a tus necesidades.</p>
+            <p>¿Listo para llevar tu negocio al siguiente nivel?</p>
+            <a href="servicio.html" class="btn btn-hero">Descubre nuestros servicios</a>
+        </div>
+    </section>
 
-        Desde el desarrollo de aplicaciones hasta la optimización de procesos, te ayudamos a alcanzar tus objetivos con soluciones eficientes, modernas y adaptadas a tus necesidades.
-        
-        ¿Listo para llevar tu negocio al siguiente nivel?
-        Haz clic en el botón de abajo y descubre cómo podemos ayudarte a transformar tu visión en realidad.
-       </p> <br>
-      <a href="servicio.html" class="btn btn-hero">Descubre nuestros servicios</a>
-    </div>
-  </section>
+    <!-- Servicios Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="services-title">Nuestros Servicios</h2>
+            <div class="services-list">
+                <div class="service-card">
+                    <h3 class="service-title">Consultoría Digital</h3>
+                    <p class="service-desc">Asesoramiento experto para la transformación digital de tu negocio.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Soluciones Multiexperiencia</h3>
+                    <p class="service-desc">Desarrollo de aplicaciones multiplataforma adaptadas a tus necesidades.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Evolución de Ecosistemas</h3>
+                    <p class="service-desc">Modernización y optimización de sistemas existentes.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Soluciones Low-Code</h3>
+                    <p class="service-desc">Desarrollo ágil y eficiente con tecnologías low-code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 ConIngenio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-
-  <!-- Nuestros Servicios -->
-  <section id="services">
-    <div class="container">
-      <h2>Nuestros Servicios</h2>
-      <div class="service">
-        <h3>Consultoría Digital</h3>
-        <p>Descripción breve del servicio.</p>
-      </div>
-      <div class="service">
-        <h3>Soluciones Multiexperiencia</h3>
-        <p>Descripción breve del servicio.</p>
-      </div>
-      <div class="service">
-        <h3>Evolución de Ecosistemas</h3>
-        <p>Descripción breve del servicio.</p>
-      </div>
-      <div class="service">
-        <h3>Soluciones Low-Code</h3>
-        <p>Descripción breve del servicio.</p>
-      </div>
-    </div>
-  </section>
-
-  
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2025 ConIngenio. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('nav-toggle').addEventListener('click', function() {
-        document.getElementById('nav-menu').classList.toggle('open');
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

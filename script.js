@@ -1,24 +1,63 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('nav-toggle').addEventListener('click', function() {
-    document.getElementById('nav-menu').classList.toggle('open');
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  // Función para toggle del menú
+  navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+  });
+
+  // Cerrar menú al hacer click en un enlace
+  const navLinks = document.querySelectorAll('#nav-menu a');
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+      });
+  });
+
+  // Cerrar menú al hacer click fuera de él
+  document.addEventListener('click', function(event) {
+      const isClickInsideNav = navMenu.contains(event.target);
+      const isClickOnToggle = navToggle.contains(event.target);
+      
+      if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+      }
+  });
+
+  // Ajustar menú al redimensionar la ventana
+  window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+          navMenu.classList.remove('active');
+      }
   });
 });
-// Cambiar entre tema día/noche
-const themeToggle = document.getElementById('theme-toggle');
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
-  });
-}
-const langToggle = document.getElementById('lang-toggle');
-if (langToggle) {
-  langToggle.addEventListener('click', () => {
-    const currentLang = document.documentElement.lang;
-    document.documentElement.lang = currentLang === 'ESP' ? 'EN' : 'ESP';
-    langToggle.textContent = currentLang === 'ESP' ? 'EN' : 'ESP';
-  });
-}
+// Agregar al inicio de tu script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Configuración del tema
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  // Verificar si hay un tema guardado
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  // Función para cambiar el tema
+  function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      // Actualizar el tema
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Actualizar el ícono del botón
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+
+  // Evento click para el botón de tema
+  themeToggle.addEventListener('click', toggleTheme);
+});
 
 
 
