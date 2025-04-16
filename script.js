@@ -41,3 +41,7 @@ if (contactForm) {
     contactForm.reset(); // Limpiar formulario
   });
 }
+// En tu script principal o al final del body
+document.getElementById('nav-toggle').addEventListener('click', function() {
+  document.getElementById('nav-menu').classList.toggle('open');
+});
