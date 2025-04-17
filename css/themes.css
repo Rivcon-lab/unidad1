@@ -15,7 +15,7 @@
     /* Nuevas variables para formularios y cards */
     --form-bg: #ffffff;
     --form-border: #cccccc;
-    --form-focus: #007bff;
+    --form-focus: #006363;
     --input-bg: #ffffff;
     --input-text: #333333;
     --button-bg: #00b8b8;
@@ -23,7 +23,7 @@
     --button-hover: #009090;
     --mobile-menu-bg: #ffffff;
     --mobile-menu-text: #333333;
-    --card-title-color: #00b8b8;
+    --card-title-color: #006363;
     --card-text-color: #333333;
     --link-color: #007bff;
     --sombra-color: #e9e9e9d8;
@@ -46,7 +46,7 @@
     /* Nuevas variables para modo oscuro */
     --form-bg: #333333;
     --form-border: #444444;
-    --form-focus: #00b8b8;
+    --form-focus: #00f8f8;
     --input-bg: #2d2d2d;
     --input-text: #ffffff;
     --button-bg: #00b8b8;
@@ -54,7 +54,7 @@
     --button-hover: #009090;
     --mobile-menu-bg: #2d2d2d;
     --mobile-menu-text: #ffffff;
-    --card-title-color: #00b8b8;
+    --card-title-color: #00f8f8;
     --card-text-color: #ffffff;
     --link-color: #00b8b8;
     --sombra-color: #1f1f1fd8;
