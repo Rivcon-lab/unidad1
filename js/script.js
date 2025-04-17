@@ -32,36 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 });
-// Agregar al inicio de tu script.js
-document.addEventListener('DOMContentLoaded', function() {
-  // Configuración del tema
-  const themeToggle = document.getElementById('theme-toggle');
-  
-  // Verificar si hay un tema guardado
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-  // Función para cambiar el tema
-  function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      // Actualizar el tema
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Actualizar el ícono del botón
-      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-  }
-
-  // Evento click para el botón de tema
-  themeToggle.addEventListener('click', toggleTheme);
-});
-
-
-
-
 // Validar formulario y mostrar datos en la consola
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
@@ -88,17 +58,34 @@ if (contactForm) {
     contactForm.reset(); // Limpiar formulario
   });
 }
-const themeToggle = document.getElementById('theme-toggle');
-const logo = document.getElementById('logo');
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  const logo = document.getElementById('logo');
 
-// Cambiar el logo según el tema
-themeToggle.addEventListener('click', () => {
+  // Verificar si hay un tema guardado en localStorage
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.body.setAttribute('data-theme', savedTheme);
+  logo.src = savedTheme === 'dark' ? 'img/logow.png' : 'img/logob.png';
+  themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  // Función para alternar el tema
+  function toggleTheme() {
     const currentTheme = document.body.getAttribute('data-theme');
-    if (currentTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'light');
-        logo.src = 'img/logob.png'; // Logo para modo claro
-    } else {
-        document.body.setAttribute('data-theme', 'dark');
-        logo.src = 'img/logow.png'; // Logo para modo oscuro
-    }
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    // Actualizar el tema en el DOM
+    document.body.setAttribute('data-theme', newTheme);
+
+    // Cambiar el logo según el tema
+    logo.src = newTheme === 'dark' ? 'img/logow.png' : 'img/logob.png';
+
+    // Actualizar el ícono del botón
+    themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+    // Guardar el tema en localStorage
+    localStorage.setItem('theme', newTheme);
+  }
+
+  // Evento click para el botón de tema
+  themeToggle.addEventListener('click', toggleTheme);
 });
