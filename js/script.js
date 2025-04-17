@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logo = document.getElementById('logo');
 
   // Recupera el tema guardado o usa 'light' por defecto
-  const savedTheme = localStorage.getItem('theme') || 'light';
+  const savedTheme = localStorage.getItem('theme') || 'dark';
   document.body.setAttribute('data-theme', savedTheme);
   logo.src = savedTheme === 'dark' ? 'img/logow.png' : 'img/logob.png';
   themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
