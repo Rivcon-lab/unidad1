@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const logo = document.getElementById('logo');
   const contactForm = document.getElementById('contact-form');
 
+  if (!navToggle || !navMenu || !themeToggle || !logo) {
+      console.error('Uno o más elementos necesarios no existen en el DOM.');
+      return;
+  }
+
   // --- CONFIGURACIÓN INICIAL ---
   const savedTheme = localStorage.getItem('theme') || 'dark';
   document.body.setAttribute('data-theme', savedTheme);
