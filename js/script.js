@@ -1,14 +1,53 @@
-// Espera a que el DOM esté completamente cargado
+// Espera a que el DOM esté completamente cargado antes de ejecutar cualquier código
 document.addEventListener('DOMContentLoaded', function() {
+  // --- ELEMENTOS DEL DOM ---
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
+  const themeToggle = document.getElementById('theme-toggle');
+  const logo = document.getElementById('logo');
+  const contactForm = document.getElementById('contact-form');
 
-  // --- Menú hamburguesa: abrir/cerrar ---
-  navToggle.addEventListener('click', function() {
+  // --- CONFIGURACIÓN INICIAL ---
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.body.setAttribute('data-theme', savedTheme);
+  themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  // --- FUNCIONES DE UTILIDAD ---
+  // Función para actualizar el logo según tema y tamaño
+  function updateLogo() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const isSmall = window.innerWidth <= 600;
+      
+      // Precargar la imagen antes de cambiarla
+      const newImage = new Image();
+      const newSrc = currentTheme === 'dark' 
+          ? (isSmall ? 'img/logowsmall.png' : 'img/logow.png')
+          : (isSmall ? 'img/logobsmall.png' : 'img/logob.png');
+          
+      newImage.onload = function() {
+          logo.src = newSrc;
+      };
+      newImage.src = newSrc;
+  }
+
+  // Función para alternar el tema
+  function toggleTheme() {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.body.setAttribute('data-theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('theme', newTheme);
+      updateLogo();
+  }
+
+  // --- EVENTOS DE NAVEGACIÓN ---
+  // Toggle del menú hamburguesa
+  navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
   });
 
-  // Cierra el menú al hacer click en cualquier enlace de navegación
+  // Cerrar menú al hacer click en enlaces
   const navLinks = document.querySelectorAll('#nav-menu a');
   navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -16,74 +55,72 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 
-  // Cierra el menú si se hace click fuera de él
-  document.addEventListener('click', function(event) {
+  // Cerrar menú al hacer click fuera
+  document.addEventListener('click', (event) => {
       const isClickInsideNav = navMenu.contains(event.target);
       const isClickOnToggle = navToggle.contains(event.target);
+      
       if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
           navMenu.classList.remove('active');
       }
   });
 
-  // Asegura que el menú se oculte al redimensionar la ventana a escritorio
-  window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-          navMenu.classList.remove('active');
-      }
+  // --- EVENTOS DE REDIMENSIONAMIENTO Y TEMA ---
+  // Manejar redimensionamiento con debounce para mejor rendimiento
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+          if (window.innerWidth > 768) {
+              navMenu.classList.remove('active');
+          }
+          updateLogo();
+      }, 250); // Espera 250ms después del último evento resize
   });
-});
 
-// --- Validación y manejo del formulario de contacto ---
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // Evita el envío tradicional del formulario
+  // Evento para cambio de tema
+  themeToggle.addEventListener('click', toggleTheme);
 
-    // Obtiene y limpia los valores de los campos
-    const nombre = document.getElementById('name').value.trim();
-    const servicio = document.getElementById('service').value.trim();
-    const mensaje = document.getElementById('message').value.trim();
-    const email = document.getElementById('email').value.trim();
+  // --- MANEJO DEL FORMULARIO DE CONTACTO ---
+  if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
 
-    // Validación básica de campos vacíos
-    if (!nombre || !email || !servicio || !mensaje) {
-      alert('Por favor, completa todos los campos.');
-      return;
-    }
+          // Obtener y limpiar valores
+          const formData = {
+              nombre: document.getElementById('name').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              servicio: document.getElementById('service').value.trim(),
+              mensaje: document.getElementById('message').value.trim()
+          };
 
-    // Muestra los datos en la consola (puedes reemplazar esto por un envío real)
-    console.log('Formulario enviado:');
-    console.log(`Nombre: ${nombre}`);
-    console.log(`Email: ${email}`);
-    console.log(`Servicio: ${servicio}`);
-    console.log(`Mensaje: ${mensaje}`);
+          // Validación
+          if (Object.values(formData).some(value => !value)) {
+              alert('Por favor, completa todos los campos.');
+              return;
+          }
 
-    contactForm.reset(); // Limpia el formulario tras el envío
-  });
-}
+          // Log de datos (reemplazar con envío real)
+          console.log('Formulario enviado:', formData);
 
-// --- Alternancia de tema claro/oscuro ---
-document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('theme-toggle');
-  const logo = document.getElementById('logo');
-
-  // Recupera el tema guardado o usa 'light' por defecto
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  document.body.setAttribute('data-theme', savedTheme);
-  logo.src = savedTheme === 'dark' ? 'img/logow.png' : 'img/logob.png';
-  themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-
-  // Cambia el tema y actualiza el logo e ícono del botón
-  function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    document.body.setAttribute('data-theme', newTheme);
-    logo.src = newTheme === 'dark' ? 'img/logow.png' : 'img/logob.png';
-    themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-    localStorage.setItem('theme', newTheme);
+          // Limpiar formulario
+          contactForm.reset();
+      });
   }
 
-  // Evento para alternar el tema al hacer click en el botón
-  themeToggle.addEventListener('click', toggleTheme);
+  // --- INICIALIZACIÓN ---
+  // Actualizar logo inicial
+  updateLogo();
+
+  // Precargar todas las versiones del logo para cambios más suaves
+  const logoVersions = [
+      'img/logob.png',
+      'img/logobsmall.png',
+      'img/logow.png',
+      'img/logowsmall.png'
+  ];
+  logoVersions.forEach(src => {
+      const img = new Image();
+      img.src = src;
+  });
 });
