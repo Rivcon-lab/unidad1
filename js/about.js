@@ -1,12 +1,18 @@
+/**
+ * Carga la información "Sobre Nosotros" desde la API y la muestra en cards.
+ */
 function cargarAbout() {
+    // Muestra el mensaje de carga y oculta errores previos
     document.getElementById('loading-msg').style.display = 'block';
     document.getElementById('error-msg').style.display = 'none';
     document.getElementById('about-list').innerHTML = '';
 
+    // Configuración de la API y cabeceras
     const headerParams = { 'Authorization': 'Bearer ciisa' };
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     const apiUrl = "https://ciisa.coningenio.cl/v1/about-us/";
 
+    // Solicitud a la API usando fetch
     fetch(proxyUrl + apiUrl, {
         method: 'GET',
         headers: headerParams
@@ -18,12 +24,14 @@ function cargarAbout() {
     .then(data => {
         document.getElementById('loading-msg').style.display = 'none';
 
+        // Si no hay datos, muestra mensaje de error
         if (!data.data || data.data.length === 0) {
             document.getElementById('error-msg').textContent = 'No hay información disponible.';
             document.getElementById('error-msg').style.display = 'block';
             return;
         }
 
+        // Renderiza cada card de "Sobre Nosotros"
         const aboutList = document.getElementById('about-list');
         data.data.forEach(item => {
             const card = document.createElement('div');
@@ -45,10 +53,12 @@ function cargarAbout() {
         });
     })
     .catch(error => {
+        // Muestra mensaje de error si la API falla
         document.getElementById('loading-msg').style.display = 'none';
         document.getElementById('error-msg').textContent = 'Error al cargar los datos: ' + error.message;
         document.getElementById('error-msg').style.display = 'block';
     });
 }
 
+// Ejecuta la función al cargar el DOM
 document.addEventListener("DOMContentLoaded", cargarAbout);
