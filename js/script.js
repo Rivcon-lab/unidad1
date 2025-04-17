@@ -71,17 +71,34 @@ if (contactForm) {
     const nombre = document.getElementById('name').value.trim();
     const servicio = document.getElementById('service').value.trim();
     const mensaje = document.getElementById('message').value.trim();
+    const email = document.getElementById('email').value.trim();
 
-    if (!nombre || !servicio || !mensaje) {
+    if (!nombre ||!email || !servicio || !mensaje) {
       alert('Por favor, completa todos los campos.');
       return;
     }
 
     console.log('Formulario enviado:');
     console.log(`Nombre: ${nombre}`);
+    console.log(`Mensaje: ${email}`);
     console.log(`Servicio: ${servicio}`);
     console.log(`Mensaje: ${mensaje}`);
+    
 
     contactForm.reset(); // Limpiar formulario
   });
 }
+const themeToggle = document.getElementById('theme-toggle');
+const logo = document.getElementById('logo');
+
+// Cambiar el logo según el tema
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'light');
+        logo.src = 'img/logob.png'; // Logo para modo claro
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        logo.src = 'img/logow.png'; // Logo para modo oscuro
+    }
+});
